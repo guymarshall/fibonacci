@@ -15,22 +15,24 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Number: ");
-        BigInteger userInput = scanner.nextBigInteger();
+        int userInput = scanner.nextInt();
 
         BigInteger first = BigInteger.ONE;
         BigInteger second = BigInteger.ONE;
         BigInteger third;
 
-        BigInteger counter = BigInteger.ONE;
+        int counter = 1;
 
-        while (counter.compareTo(userInput) <= 0) {
-            System.out.printf("%d: %s%n", counter, formatScientific(first));
+        while (counter <= userInput) {
+            System.out.println(counter);
 
             third = first.add(second);
             first = second;
             second = third;
 
-            counter = counter.add(BigInteger.ONE);
+            counter++;
         }
+
+        System.out.printf("%n%dth fibonacci number: %s%n", userInput, formatScientific(first));
     }
 }
