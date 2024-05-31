@@ -6,6 +6,12 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+    public static String formatScientific(BigInteger number) {
+        BigDecimal numberDecimal = new BigDecimal(number);
+        DecimalFormat decimalFormat = new DecimalFormat("0.00E0", DecimalFormatSymbols.getInstance(Locale.ROOT));
+        return decimalFormat.format(numberDecimal);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Number: ");
@@ -18,10 +24,7 @@ public class Main {
         BigInteger counter = BigInteger.ONE;
 
         while (counter.compareTo(userInput) <= 0) {
-            BigDecimal firstDecimal = new BigDecimal(first);
-            DecimalFormat decimalFormat = new DecimalFormat("0.00E0", DecimalFormatSymbols.getInstance(Locale.ROOT));
-            String firstFormatted = decimalFormat.format(firstDecimal);
-            System.out.printf("%d: %s%n", counter, firstFormatted);
+            System.out.printf("%d: %s%n", counter, formatScientific(first));
 
             third = first.add(second);
             first = second;
