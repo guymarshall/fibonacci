@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 num = "0.4.3"
 bigdecimal = "0.4.5"
+promptput = "0.1.1"

@@ -1,9 +1,8 @@
-mod user_input;
-
 extern crate num;
 
 use bigdecimal::BigDecimal;
 use num::BigInt;
+use promptput::input;
 
 fn format_scientific(number: BigInt) -> String {
     if number < BigInt::from(1000) {
@@ -15,7 +14,7 @@ fn format_scientific(number: BigInt) -> String {
 }
 
 fn main() {
-    let user_input: i32 = user_input::input("Number:");
+    let user_input: i32 = input("Number:");
 
     let mut first: BigInt = BigInt::from(1);
     let mut second: BigInt = BigInt::from(1);
